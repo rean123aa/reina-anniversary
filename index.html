@@ -1,1 +1,149 @@
-<!DOCTYPE html><html><head><title>Home</title></head><body>Index Page</body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Reina 💕</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: #ffe6f0;
+      overflow-x: hidden;
+    }
+
+    header.nav {
+      background: #ff4d85;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    header.nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    header.nav a.active {
+      text-decoration: underline;
+    }
+
+    main {
+      text-align: center;
+      padding: 100px 20px 50px 20px;
+      color: #800040;
+    }
+
+    main h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    main p {
+      font-size: 1.5em;
+      line-height: 1.6;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background: #ffb3c6;
+      color: #800040;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* Floating hearts */
+    #hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(-45deg);
+      animation: floatUp 7s linear infinite;
+    }
+
+    .heart:before,
+    .heart:after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart:before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart:after {
+      left: 10px;
+      top: 0;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) rotate(-45deg); opacity: 1; }
+      100% { transform: translateY(-10vh) rotate(-45deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="brand">For Reina 💕</div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="love.html">Love Letter</a>
+      <a href="playlist.html">Playlist</a>
+      <a href="about.html">About Us</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Happy Anniversary, Reina! 💖</h1>
+    <p>Welcome to our special anniversary surprise.  
+    Explore our memories, listen to our song, and enjoy this little romantic site made just for you.</p>
+  </main>
+
+  <footer class="footer">
+    Made with ❤️ for Reina
+  </footer>
+
+  <div id="hearts"></div>
+
+  <script>
+    // Create floating hearts
+    const heartsContainer = document.getElementById('hearts');
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+      heart.style.width = heart.style.height = (10 + Math.random() * 20) + 'px';
+      heartsContainer.appendChild(heart);
+      setTimeout(() => heartsContainer.removeChild(heart), 7000);
+    }
+
+    setInterval(createHeart, 500);
+  </script>
+</body>
+</html>
