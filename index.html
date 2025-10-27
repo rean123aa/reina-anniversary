@@ -5,32 +5,272 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>For Reina 💕</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="script.js"></script>
+  <style>
+    /* ========== General ========== */
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(#ffe6f0, #ffcce6);
+      overflow-x: hidden;
+    }
+
+    /* ========== Snow ========== */
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: white;
+      user-select: none;
+      pointer-events: none;
+      font-size: 1em;
+      z-index: 1000;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(110vh) rotate(360deg); }
+    }
+
+    /* ========== Bunny ========== */
+    .bunny {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 80px;
+      height: 80px;
+      background-image: url('images/bunny.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: hop 2s ease-in-out infinite;
+      z-index: 5;
+    }
+
+    @keyframes hop {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    /* ========== Menu ========== */
+    header.nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 77, 133, 0.8);
+      padding: 15px 0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      z-index: 10;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    header.nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2em;
+      padding: 5px 10px;
+      transition: all 0.3s ease;
+      border-radius: 8px;
+    }
+
+    header.nav a:hover {
+      background: #ff80aa;
+      transform: scale(1.1);
+    }
+
+    /* ========== Sections ========== */
+    section {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 80px 20px 40px 20px;
+      color: #800040;
+      scroll-margin-top: 70px;
+    }
+
+    h1, h2 {
+      margin-bottom: 30px;
+    }
+
+    /* ========== Buttons ========== */
+    .btn {
+      padding: 12px 40px;
+      font-size: 1.2em;
+      color: white;
+      background: #ff4d85;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin: 10px;
+    }
+
+    .btn:hover {
+      background: #ff80aa;
+      transform: scale(1.05);
+    }
+
+    /* ========== Gallery ========== */
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    .gallery-container img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+
+    .gallery-container img:hover {
+      transform: scale(1.1);
+    }
+
+    /* ========== Playlist ========== */
+    .player {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .controls {
+      margin-top: 15px;
+    }
+
+    .controls button {
+      padding: 10px 20px;
+      background: #ff4d85;
+      border: none;
+      color: white;
+      font-size: 1em;
+      margin: 5px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .controls button:hover {
+      background: #ff80aa;
+      transform: scale(1.05);
+    }
+
+    footer {
+      padding: 20px;
+      background: #ffb3c6;
+      color: #800040;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
+  <div id="snow-container"></div>
+  <div class="bunny"></div>
+
+  <!-- Navigation -->
   <header class="nav">
-    <div class="brand">For Reina 💕</div>
-    <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="love.html">Love Letter</a>
-      <a href="playlist.html">Playlist</a>
-      <a href="about.html">About Us</a>
-    </nav>
+    <a href="#home">Home</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#love">Love Letter</a>
+    <a href="#playlist">Playlist</a>
+    <a href="#about">About Us</a>
   </header>
 
-  <main>
-    <h1>Happy Anniversary, Reina! 💖</h1>
-    <p>Welcome to our special anniversary surprise.  
-    Explore our memories, listen to our song, and enjoy this little romantic site made just for you.</p>
-  </main>
+  <!-- Sections -->
+  <section id="home">
+    <div>
+      <h1>Happy Anniversary, Reina! 💖</h1>
+      <p>Welcome to our special anniversary surprise. Scroll down to explore our memories, love letters, playlist, and more!</p>
+      <button class="btn" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">Go to Gallery</button>
+    </div>
+  </section>
 
-  <footer class="footer">
+  <section id="gallery">
+    <div>
+      <h2>Our Memories</h2>
+      <div class="gallery-container">
+        <img src="images/photo1.jpg" alt="Memory 1">
+        <img src="images/photo2.jpg" alt="Memory 2">
+        <img src="images/photo3.jpg" alt="Memory 3">
+        <img src="images/photo4.jpg" alt="Memory 4">
+      </div>
+    </div>
+  </section>
+
+  <section id="love">
+    <div>
+      <h2>My Love Letter 💌</h2>
+      <p>Happy anniversary, my love. Every moment with you is a treasure. This surprise website is just a small token of my love for you.</p>
+      <p>Forever yours,<br>Your love 💖</p>
+    </div>
+  </section>
+
+  <section id="playlist">
+    <div>
+      <h2>Our Song: "Kailan" — M.Y.M.P.</h2>
+      <div class="player">
+        <iframe id="ytplayer" width="100%" height="315"
+          src="https://www.youtube.com/embed/v8Yx0w4tD9A?autoplay=1&mute=1&loop=1&playlist=v8Yx0w4tD9A&rel=0&modestbranding=1&enablejsapi=1"
+          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+        </iframe>
+        <div class="controls">
+          <button onclick="toggleMute()">🎵 Mute/Unmute</button>
+          <button onclick="restartMusic()">🔄 Restart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div>
+      <h2>About Us 💖</h2>
+      <p>This website was created as a surprise for my beloved Reina, celebrating our love and memories together. Every section is crafted with ❤️ to make this anniversary unforgettable.</p>
+    </div>
+  </section>
+
+  <footer>
     Made with ❤️ for Reina
   </footer>
 
-  <div id="hearts"></div>
+  <script>
+    // Snowfall
+    const snowContainer = document.getElementById('snow-container');
+    function createSnowflake() {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      snowflake.style.left = Math.random() * 100 + 'vw';
+      snowflake.style.fontSize = (10 + Math.random() * 20) + 'px';
+      snowflake.style.animationDuration = (5 + Math.random() * 5) + 's';
+      snowflake.innerText = '❄';
+      snowContainer.appendChild(snowflake);
+      setTimeout(() => snowflake.remove(), 10000);
+    }
+    setInterval(createSnowflake, 200);
 
-  <script src="https://www.youtube.com/iframe_api"></script>
-  <script src="script.js"></script>
+    // YouTube controls
+    let ytPlayer;
+    function onYouTubeIframeAPIReady(){
+      ytPlayer = new YT.Player('ytplayer', { events: { 'onReady': ()=>{} } });
+    }
+    function toggleMute(){
+      if(!ytPlayer) return;
+      if(ytPlayer.isMuted()) ytPlayer.unMute();
+      else ytPlayer.mute();
+    }
+    function restartMusic(){
+      if(!ytPlayer) return;
+      ytPlayer.seekTo(0);
+      ytPlayer.playVideo();
+    }
+  </script>
 </body>
 </html>
