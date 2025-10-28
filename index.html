@@ -3,12 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>💖 Magical Anniversary for Reina 💖</title>
+<title>💖 Anniversary Surprise for My Baby 💖</title>
 <script src="https://www.youtube.com/iframe_api"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&display=swap');
 
-/* General Styles */
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
@@ -22,7 +21,6 @@ body {
 }
 @keyframes gradientShift { 0% {background-position:0% 50%;} 50% {background-position:100% 50%;} 100% {background-position:0% 50%;} }
 
-/* Background Glow */
 #background-glow { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-2;
   background: radial-gradient(circle at 30% 30%, rgba(255,192,203,0.2), rgba(255,182,193,0));
   animation: glowShift 10s ease-in-out infinite alternate, pulse 5s infinite alternate;
@@ -30,103 +28,74 @@ body {
 @keyframes pulse { 0% { opacity: 0.5; } 50% { opacity: 0.8; } 100% { opacity: 0.5; } }
 @keyframes glowShift { 0% {background-position:30% 30%;} 50% {background-position:70% 70%;} 100% {background-position:30% 30%;} }
 
-/* Snowflakes */
 #snow-container { position: fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:-1; }
-.snowflake {
-  position: fixed;
-  top: -10px;
-  user-select: none;
-  pointer-events: none;
-  font-size: 15px;
-  z-index: 1000;
-  animation: fall linear infinite, shimmer 2s infinite alternate, twinkle 3s infinite alternate;
-  text-shadow: 0 0 5px #fff, 0 0 10px #ffccf2, 0 0 15px #ff99cc;
-}
+.snowflake { position: fixed; top: -10px; user-select: none; pointer-events: none; font-size: 15px; z-index: 1000; animation: fall linear infinite, shimmer 2s infinite alternate, twinkle 3s infinite alternate; text-shadow: 0 0 5px #fff, 0 0 10px #ffccf2, 0 0 15px #ff99cc; }
 @keyframes fall { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translateY(110vh) rotate(360deg); } }
 @keyframes shimmer { 0%,100% { opacity: 0.8; } 50% { opacity: 0.3; } }
-@keyframes twinkle {
-  0% { color: #ffffff; opacity:0.7; }
-  25% { color: #ffe6f0; opacity:0.8; }
-  50% { color: #ffccf2; opacity:0.6; }
-  75% { color: #ffcce6; opacity:0.9; }
-  100% { color: #ff99cc; opacity:0.7; }
-}
+@keyframes twinkle { 0% { color: #ffffff; opacity:0.7; } 25% { color: #ffe6f0; opacity:0.8; } 50% { color: #ffccf2; opacity:0.6; } 75% { color: #ffcce6; opacity:0.9; } 100% { color: #ff99cc; opacity:0.7; } }
 
-/* Heart bubbles */
-.heart-bubble {
-  position: fixed;
-  bottom: -30px;
-  width: 15px;
-  height: 15px;
-  background: rgba(255,102,170,0.4);
-  clip-path: polygon(50% 0%, 61% 12%, 75% 12%, 85% 25%, 50% 100%, 15% 25%, 25% 12%, 39% 12%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-  animation: floatUp linear infinite;
-}
-@keyframes floatUp {
-  0% { transform: translateY(0) scale(1); opacity: 0.6; }
-  50% { transform: translateY(-50vh) scale(1.2); opacity: 0.8; }
-  100% { transform: translateY(-100vh) scale(1); opacity: 0; }
-}
+.heart-bubble { position: fixed; bottom: -30px; width: 15px; height: 15px; background: rgba(255,102,170,0.4); clip-path: polygon(50% 0%, 61% 12%, 75% 12%, 85% 25%, 50% 100%, 15% 25%, 25% 12%, 39% 12%); border-radius: 50%; pointer-events: none; z-index: 0; animation: floatUp linear infinite; }
+@keyframes floatUp { 0% { transform: translateY(0) scale(1); opacity: 0.6; } 50% { transform: translateY(-50vh) scale(1.2); opacity: 0.8; } 100% { transform: translateY(-100vh) scale(1); opacity: 0; } }
 
-/* Bunny top-right */
-.bunny {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 80px;
-  height: 80px;
-  background-image: url('images/bunny.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  z-index: 10;
-  cursor: pointer;
-}
+.bunny { position: fixed; top: 20px; right: 20px; width: 80px; height: 80px; background-image: url('images/bunny.png'); background-size: contain; background-repeat: no-repeat; z-index: 10; cursor: pointer; }
 
-/* Sections */
 section { min-height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; padding: 80px 20px 40px 20px; opacity:0; transform:translateY(50px); transition: all 0.8s ease-out; }
-section div { background: rgba(255,255,255,0.25); padding: 20px; border-radius: 15px; }
+section div { background: rgba(255,255,255,0.25); padding: 20px; border-radius: 15px; max-width: 900px; }
 
-/* Bubble font */
 h1, h2 { font-family: 'Baloo 2', cursive; font-weight:700; color: #ff4d85; text-shadow: 2px 2px 0 #ffcce6, 4px 4px 0 #ffb3d1, 6px 6px 0 #ffa3c4; letter-spacing:1px; animation: floatBubble 3s ease-in-out infinite alternate; }
 @keyframes floatBubble { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
 
 p { font-family: 'Baloo 2', cursive; font-weight:500; font-size:1.2em; color:#800040; text-shadow:1px 1px 4px rgba(255,255,255,0.7); line-height:1.6em; }
 
-/* Sparkling words */
-.sparkWord { display:inline-block; color:#ff4d85; text-shadow: 1px 1px 0 #ffd1e6,2px 2px 0 #ffb3d1; animation: sparkleWord 2s ease-in-out infinite alternate; }
-@keyframes sparkleWord { 0% {text-shadow:1px 1px 0 #ffd1e6,2px 2px 0 #ffb3d1;} 50% {text-shadow:2px 2px 0 #ff80aa,4px 4px 0 #ff4d85;} 100% {text-shadow:1px 1px 0 #ffd1e6,2px 2px 0 #ffb3d1;} }
+.gallery-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; width:80%; margin:0 auto; position: relative; }
+.photo-wrapper { position: relative; }
+.photo-wrapper img { width:100%; border-radius:10px; transition: transform 0.3s, box-shadow 1s ease-in-out; }
+.photo-wrapper img:hover, .photo-wrapper img.visible { transform: scale(1.05); box-shadow: 0 0 25px #ff80aa, 0 0 50px #ff4d85; border: 2px solid #ffb3d1; }
 
-/* Gallery hover + sparkle */
-.gallery-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; width:80%; margin:0 auto; }
-.gallery-container img { width:100%; border-radius:10px; transition: transform 0.3s, box-shadow 1s ease-in-out; }
-.gallery-container img:hover, .gallery-container img.visible { transform: scale(1.05); box-shadow: 0 0 25px #ff80aa, 0 0 50px #ff4d85; border: 2px solid #ffb3d1; }
-.gallery-container img.sparkle { animation: sparkle 2s ease-in-out infinite alternate; }
-@keyframes sparkle { 0% { box-shadow: 0 0 0px #ffb3d1; } 50% { box-shadow: 0 0 15px #ffccf2, 0 0 30px #ff99cc; } 100% { box-shadow: 0 0 0px #ffb3d1; } }
+.photo-wrapper .lyric { position: absolute; font-size: 0.9em; color: #fff; font-weight: bold; pointer-events: none; text-shadow: 0 0 5px #ffb3d1,0 0 10px #ff80aa; opacity:0.8; animation: drift 15s linear infinite; }
 
-/* Music controls */
+@keyframes drift { 0% {transform: translate(0px,0px);} 25% {transform: translate(10px,-20px);} 50% {transform: translate(-15px,10px);} 75% {transform: translate(20px,15px);} 100% {transform: translate(0px,0px);} }
+
 .player { max-width: 700px; margin: 0 auto; }
 .controls { margin-top: 15px; }
-.controls button { padding: 10px 20px; background: #ff4d85; border:none; color:white; font-size:1em; margin:5px; cursor:pointer; border-radius:8px; transition:0.3s; box-shadow: 0 0 10px #ff99cc, 0 0 20px #ff66aa; }
+.controls button { padding: 10px 20px; background: #ff4d85; border:none; color:white; font-family: 'Baloo 2', cursive; font-weight:700; font-size:1.1em; margin:5px; cursor:pointer; border-radius:12px; text-shadow: 2px 2px 0 #ffcce6, 4px 4px 0 #ffb3d1; transition:0.3s; box-shadow: 0 0 10px #ff99cc, 0 0 20px #ff66aa; }
 .controls button:hover { box-shadow: 0 0 25px #ffb3d1, 0 0 50px #ff4d85; transform: scale(1.1); }
 
-/* Countdown */
 #countdown p { font-size:1.5em; color:#ff4d85; font-weight:bold; margin-top:10px; transition: all 1s ease-in-out; }
 
 footer { padding:20px; color:#800040; text-align:center; }
+
+@media (max-width: 768px) {
+  .gallery-container { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; }
+  .photo-wrapper .lyric { font-size: 0.7em; }
+  h1 { font-size: 2em; }
+  h2 { font-size: 1.5em; }
+  p { font-size: 1em; }
+  .bunny { width:60px; height:60px; }
+  .controls button { padding:8px 15px; font-size:1em; }
+}
+
+@media (max-width: 480px) {
+  .gallery-container { grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 8px; }
+  .photo-wrapper .lyric { font-size: 0.6em; }
+  h1 { font-size: 1.6em; }
+  h2 { font-size: 1.3em; }
+  p { font-size:0.9em; }
+  .bunny { width:50px; height:50px; }
+  .controls button { padding:6px 12px; font-size:0.9em; }
+}
 </style>
 </head>
 <body>
 <div id="background-glow"></div>
 <div id="snow-container"></div>
 <div class="bunny" id="bunny"></div>
-<button id="pauseScroll" style="position:fixed;top:20px;right:120px;z-index:9999;padding:10px 20px;background:#ff4d85;color:white;border:none;border-radius:10px;cursor:pointer;">⏸ Pause Scroll</button>
+<div id="floating-lyrics"></div>
+<button id="pauseScroll" style="position:fixed;top:20px;right:120px;z-index:9999;">⏸ Pause Scroll</button>
 
 <section id="home">
   <div>
-    <h1>💖 Magical Anniversary Surprise for My Reina 💖</h1>
+    <h1>💖 Anniversary Surprise for My Baby 💖</h1>
     <p>Welcome babyy ren ren to the surprise I spent a night working on. Scroll down and see the memories we made together my baby, and ofc a playlist of songs that reminded me of you, I love you sosososo much my bun bun.</p>
   </div>
 </section>
@@ -135,10 +104,12 @@ footer { padding:20px; color:#800040; text-align:center; }
   <div>
     <h2>Our Memories</h2>
     <div class="gallery-container">
-      <img src="images/photo1.jpg" alt="Memory 1">
-      <img src="images/photo2.jpg" alt="Memory 2">
-      <img src="images/photo3.jpg" alt="Memory 3">
-      <img src="images/photo4.jpg" alt="Memory 4">
+      <div class="photo-wrapper"><img src="images/photo1.jpg"><div class="lyric">Kailan</div></div>
+      <div class="photo-wrapper"><img src="images/photo2.jpg"><div class="lyric">Mahal Kita</div></div>
+      <div class="photo-wrapper"><img src="images/photo3.jpg"><div class="lyric">Di Ko Makakalimutan</div></div>
+      <div class="photo-wrapper"><img src="images/photo4.jpg"><div class="lyric">Hanggang Sa Dulo</div></div>
+      <div class="photo-wrapper"><img src="images/photo5.jpg"><div class="lyric">Sa Aking Puso</div></div>
+      <div class="photo-wrapper"><img src="images/photo6.jpg"><div class="lyric">Ikaw Lang</div></div>
     </div>
   </div>
 </section>
@@ -146,8 +117,7 @@ footer { padding:20px; color:#800040; text-align:center; }
 <section id="love">
   <div>
     <h2>My Love Letter 💌</h2>
-    <p>Happy <span>anniversary</span>, my <span>love</span>. Every moment with you is a <span>treasure</span>. This surprise website is just a small token of my <span>love</span> for you.</p>
-    <p>Forever <span>yours</span>,<br>Your <span>love</span> 💖</p>
+    <p>I love you so, so much, my baby Ren Ren. I honestly can’t believe it’s already been four months. I’ve enjoyed every moment with you, even the smallest things. I love you so much, my baby, and no matter what, I’ll always cherish you because you mean everything to me. I love you, Reina. I hope that one day we will get married and love each other until the end.</p>
   </div>
 </section>
 
@@ -166,7 +136,7 @@ footer { padding:20px; color:#800040; text-align:center; }
 
 <section id="countdown">
   <div>
-    <h2>⏰ Countdown to Our Next Anniversary ⏰</h2>
+    <h2>⏰ Countdown to Midnight Tonight ⏰</h2>
     <p id="timer">Calculating...</p>
   </div>
 </section>
@@ -174,86 +144,69 @@ footer { padding:20px; color:#800040; text-align:center; }
 <footer>Made with ❤️ for Reina</footer>
 
 <script>
-// ------------- Snow -------------
-const snowContainer = document.getElementById('snow-container');
-function createSnowflake() {
-  const snowflake = document.createElement('div');
-  snowflake.classList.add('snowflake');
-  snowflake.style.left = Math.random() * 100 + 'vw';
-  snowflake.style.fontSize = (15 + Math.random() * 20) + 'px';
-  const colors = ['#ffffff','#ffe6f0','#ffccf2','#ffcce6','#ff99cc'];
-  snowflake.style.color = colors[Math.floor(Math.random() * colors.length)];
-  snowflake.style.animationDuration = (5 + Math.random() * 5) + 's';
-  snowflake.innerText = '❄';
-  snowContainer.appendChild(snowflake);
-  setTimeout(() => snowflake.remove(), 12000);
-}
-setInterval(createSnowflake, 200);
+// Snow & hearts
+const snowContainer=document.getElementById('snow-container');
+function createSnowflake(){const s=document.createElement('div');s.classList.add('snowflake');s.style.left=Math.random()*100+'vw';s.style.fontSize=(15+Math.random()*20)+'px';const colors=['#ffffff','#ffe6f0','#ffccf2','#ffcce6','#ff99cc'];s.style.color=colors[Math.floor(Math.random()*colors.length)];s.style.animationDuration=(5+Math.random()*5)+'s';s.innerText='❄';snowContainer.appendChild(s);setTimeout(()=>s.remove(),12000);}
+setInterval(createSnowflake,200);
+function createHeartBubble(){const b=document.createElement('div');b.classList.add('heart-bubble');b.style.left=Math.random()*100+'vw';b.style.animationDuration=(5+Math.random()*5)+'s';document.body.appendChild(b);setTimeout(()=>b.remove(),10000);}
+setInterval(createHeartBubble,400);
 
-// ------------- Heart Bubbles -------------
-function createHeartBubble(){ const bubble = document.createElement('div'); bubble.classList.add('heart-bubble'); bubble.style.left = Math.random() * 100 + 'vw'; bubble.style.animationDuration = (5 + Math.random()*5) + 's'; document.body.appendChild(bubble); setTimeout(()=>bubble.remove(), 10000);}
-setInterval(createHeartBubble, 400);
+// YouTube
+let ytPlayer;function onYouTubeIframeAPIReady(){ytPlayer=new YT.Player('ytplayer');}
+function toggleMute(){if(!ytPlayer)return;ytPlayer.isMuted()?ytPlayer.unMute():ytPlayer.mute();}
+function restartMusic(){if(!ytPlayer)return;ytPlayer.seekTo(0);ytPlayer.playVideo();}
 
-// ------------- YouTube -------------
-let ytPlayer;
-function onYouTubeIframeAPIReady(){ ytPlayer=new YT.Player('ytplayer'); }
-function toggleMute(){ if(!ytPlayer)return; ytPlayer.isMuted()? ytPlayer.unMute(): ytPlayer.mute(); }
-function restartMusic(){ if(!ytPlayer)return; ytPlayer.seekTo(0); ytPlayer.playVideo(); }
-
-// ------------- Animate Sections -------------
+// Section animations
 const sections=document.querySelectorAll('section');
-function animateSections(){
-  const triggerBottom=window.innerHeight*0.85;
-  sections.forEach(section=>{
-    const sectionTop=section.getBoundingClientRect().top;
-    if(sectionTop<triggerBottom){ 
-      section.style.opacity='1'; section.style.transform='translateY(0)';
-      section.querySelectorAll('p').forEach(p=>{ p.style.opacity='1'; p.style.transform='translateY(0)'; });
-      section.querySelectorAll('.gallery-container img').forEach(img=>img.classList.add('visible'));
-    }
-  });
-}
-window.addEventListener('scroll',animateSections);
-animateSections();
+function animateSections(){const triggerBottom=window.innerHeight*0.85;sections.forEach(section=>{const sectionTop=section.getBoundingClientRect().top;if(sectionTop<triggerBottom){section.style.opacity='1';section.style.transform='translateY(0)';section.querySelectorAll('p').forEach(p=>{p.style.opacity='1';p.style.transform='translateY(0)';});section.querySelectorAll('.gallery-container img').forEach(img=>img.classList.add('visible'));}});}
+window.addEventListener('scroll',animateSections);animateSections();
 
-// ------------- Love letter sparkle -------------
-document.addEventListener('DOMContentLoaded',()=>{
-  const loveText = document.querySelectorAll('#love p span');
-  loveText.forEach((word, idx)=>{ setTimeout(()=>{ word.classList.add('sparkWord'); }, idx*400); });
-});
+// Auto-scroll
+let autoScrollPaused=false;document.getElementById('pauseScroll').addEventListener('click',()=>{autoScrollPaused=!autoScrollPaused;document.getElementById('pauseScroll').innerText= autoScrollPaused ? '▶ Resume Scroll':'⏸ Pause Scroll';});
+let currentSection=0;function autoScroll(){if(autoScrollPaused)return;if(currentSection>=sections.length)return;sections[currentSection].scrollIntoView({behavior:'smooth'});currentSection++;setTimeout(autoScroll,4000);}
+setTimeout(autoScroll,2000);
 
-// ------------- Auto-scroll 2s -------------
-let autoScrollPaused=false;
-document.getElementById('pauseScroll').addEventListener('click', ()=>{
-  autoScrollPaused=!autoScrollPaused;
-  document.getElementById('pauseScroll').innerText= autoScrollPaused ? '▶ Resume Scroll':'⏸ Pause Scroll';
-});
-
-let currentSection = 0;
-function autoScroll(){
-  if(autoScrollPaused) return;
-  if(currentSection >= sections.length) return;
-  sections[currentSection].scrollIntoView({behavior:'smooth'});
-  currentSection++;
-  setTimeout(autoScroll, 2000);
-}
-setTimeout(autoScroll, 2000);
-
-// ------------- Countdown Timer -------------
-function countdownTimer(){
-  const timer = document.getElementById('timer');
-  const now = new Date();
-  let next = new Date(now.getFullYear(), now.getMonth(), 28, 14,0,0); // 28th of month, 2 PM
-  if(now > next) next.setMonth(next.getMonth()+1);
-  const diff = next - now;
-  const days=Math.floor(diff/(1000*60*60*24));
-  const hours=Math.floor((diff/(1000*60*60))%24);
-  const minutes=Math.floor((diff/1000/60)%60);
-  const seconds=Math.floor((diff/1000)%60);
-  timer.innerText=`${days}d ${hours}h ${minutes}m ${seconds}s`;
-  setTimeout(countdownTimer,1000);
-}
+// Countdown to midnight
+function countdownTimer(){const timer=document.getElementById('timer');const now=new Date();let next=new Date();next.setHours(24,0,0,0);const diff=next-now;if(diff<=0){timer.innerText="🎉 Happy Anniversary! 🎉";showCongratsEffect();return;}const hours=Math.floor((diff/(1000*60*60))%24);const minutes=Math.floor((diff/1000/60)%60);const seconds=Math.floor((diff/1000)%60);timer.innerText=`${hours}h ${minutes}m ${seconds}s`;setTimeout(countdownTimer,1000);}
 countdownTimer();
+
+function showCongratsEffect(){const confettiContainer=document.createElement('div');confettiContainer.style.position='fixed';confettiContainer.style.top='0';confettiContainer.style.left='0';confettiContainer.style.width='100%';confettiContainer.style.height='100%';confettiContainer.style.pointerEvents='none';confettiContainer.style.zIndex='9999';document.body.appendChild(confettiContainer);const colors=['#ff4d85','#ff99cc','#ffe6f0','#ffb3d1','#ff66aa'];for(let i=0;i<200;i++){const c=document.createElement('div');c.innerText='🎊';c.style.position='absolute';c.style.left=Math.random()*100+'vw';c.style.top=Math.random()*100+'vh';c.style.fontSize=(10+Math.random()*30)+'px';c.style.color=colors[Math.floor(Math.random()*colors.length)];c.style.animation=`fallConfetti ${3+Math.random()*5}s linear forwards`;confettiContainer.appendChild(c);setTimeout(()=>c.remove(),10000);}setTimeout(()=>confettiContainer.remove(),10000);}
+const style=document.createElement('style');style.innerHTML='@keyframes fallConfetti{0%{transform:translateY(0);}100%{transform:translateY(100vh);}}';document.head.appendChild(style);
+
+// Bunny click
+document.getElementById('bunny').addEventListener('click',()=>{ alert("I love you, Reina ❤️"); });
+
+// Floating lyrics tied to song
+const lyricsArr = ["Kailan","Mahal Kita","Di Ko Makakalimutan","Hanggang Sa Dulo","Sa Aking Puso","Ikaw Lang","Reina ❤️"];
+const lyricContainer = document.createElement('div');
+lyricContainer.style.position='fixed'; lyricContainer.style.top='0'; lyricContainer.style.left='0';
+lyricContainer.style.width='100%'; lyricContainer.style.height='100%';
+lyricContainer.style.pointerEvents='none'; lyricContainer.style.zIndex='998';
+document.body.appendChild(lyricContainer);
+
+function createFloatingLyric(text){
+  const span = document.createElement('span');
+  span.innerText=text;
+  span.style.position='absolute';
+  span.style.left = Math.random()*100+'vw';
+  span.style.top = Math.random()*80+'vh';
+  span.style.fontSize=(20+Math.random()*15)+'px';
+  span.style.color='#ff4d85';
+  span.style.fontFamily="'Baloo 2', cursive";
+  span.style.fontWeight='700';
+  span.style.opacity='0';
+  span.style.transition='opacity 0.5s';
+  lyricContainer.appendChild(span);
+
+  let left=parseFloat(span.style.left);
+  const drift=()=>{
+    if(!ytPlayer || ytPlayer.isMuted() || ytPlayer.getPlayerState()!==1){span.style.opacity='0';}
+    else{span.style.opacity='0.9'; left+=0.2+Math.random()*0.5; if(left>window.innerWidth){left=-100; span.style.top=Math.random()*80+'vh';} span.style.left=left+'px';}
+    requestAnimationFrame(drift);
+  };
+  requestAnimationFrame(drift);
+}
+lyricsArr.forEach(text=>createFloatingLyric(text));
 </script>
 </body>
 </html>
