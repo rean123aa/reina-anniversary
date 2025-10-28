@@ -49,24 +49,19 @@ section { min-height: 100vh; display: flex; justify-content: center; align-items
 section div { background: rgba(255,255,255,0.25); padding: 20px; border-radius: 15px; max-width: 900px; }
 
 /* Bubble font */
-h1, h2 { font-family: 'Baloo 2', cursive; font-weight:700; color: #ff4d85; text-shadow: 2px 2px 0 #ffcce6, 4px 4px 0 #ffb3d1, 6px 6px 0 #ffa3c4; letter-spacing:1px; animation: floatBubble 3s ease-in-out infinite alternate; border:3px solid #ff4d85; padding:10px; border-radius:12px; }
+h1, h2 { font-family: 'Baloo 2', cursive; font-weight:700; color: #ff4d85; text-shadow: 2px 2px 0 #ffcce6, 4px 4px 0 #ffb3d1, 6px 6px 0 #ffa3c4; letter-spacing:1px; animation: floatBubble 3s ease-in-out infinite alternate; }
 @keyframes floatBubble { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
 
-/* Wave effect for texts */
-.wave-text span { display:inline-block; animation: wave 2.5s ease-in-out infinite; }
-@keyframes wave { 0%,100% { transform: translateY(0px); } 25% { transform: translateY(-4px); } 50% { transform: translateY(-8px); } 75% { transform: translateY(-4px); } }
+p { font-family: 'Baloo 2', cursive; font-weight:500; font-size:1.2em; color:#800040; text-shadow:1px 1px 4px rgba(255,255,255,0.7); line-height:1.6em; animation: wave 3s ease-in-out infinite; }
+@keyframes wave { 0% { transform: translateY(0px); } 25% { transform: translateY(-4px); } 50% { transform: translateY(0px); } 75% { transform: translateY(4px); } 100% { transform: translateY(0px); } }
 
 /* Gallery hover + sparkle */
-.gallery-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; width:80%; margin:0 auto; position: relative; border:3px solid #ff4d85; border-radius:12px; animation: floatBubble 3s ease-in-out infinite alternate; }
+.gallery-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; width:80%; margin:0 auto; position: relative; }
 .gallery-container img { width:100%; border-radius:10px; transition: transform 0.3s, box-shadow 1s ease-in-out; }
 .gallery-container img:hover, .gallery-container img.visible { transform: scale(1.05); box-shadow: 0 0 25px #ff80aa, 0 0 50px #ff4d85; border: 2px solid #ffb3d1; }
 
-/* Lyrics karaoke style */
-.karaoke-line { display:block; font-size:1.5em; color:#ff4d85; margin:5px 0; opacity:0; transition: opacity 0.5s ease; text-align:center; }
-#lyrics-container { margin-top:20px; }
-
 /* Music controls styled like title */
-.player { max-width: 700px; margin: 0 auto; border:3px solid #ff4d85; border-radius:12px; animation: floatBubble 3s ease-in-out infinite alternate; padding:10px; }
+.player { max-width: 700px; margin: 0 auto; }
 .controls { margin-top: 15px; }
 .controls button { padding: 10px 20px; background: #ff4d85; border:none; color:white; font-family: 'Baloo 2', cursive; font-weight:700; font-size:1.1em; margin:5px; cursor:pointer; border-radius:12px; text-shadow: 2px 2px 0 #ffcce6, 4px 4px 0 #ffb3d1; transition:0.3s; box-shadow: 0 0 10px #ff99cc, 0 0 20px #ff66aa; }
 .controls button:hover { box-shadow: 0 0 25px #ffb3d1, 0 0 50px #ff4d85; transform: scale(1.1); }
@@ -91,6 +86,10 @@ footer { padding:20px; color:#800040; text-align:center; }
   .bunny { width:50px; height:50px; }
   .controls button { padding:6px 12px; font-size:0.9em; }
 }
+
+/* Karaoke Lyrics */
+#lyrics-container { position: relative; min-height: 80px; margin-top: 20px; }
+.lyric-line { opacity:0; transition: opacity 0.5s; font-size:1.3em; color:#ff4d85; font-weight:bold; text-shadow:0 0 5px #fff,0 0 10px #ffb3d1; }
 </style>
 </head>
 <body>
@@ -102,17 +101,13 @@ footer { padding:20px; color:#800040; text-align:center; }
 <section id="home">
   <div>
     <h1>💖 Anniversary Surprise for My Baby 💖</h1>
-    <p class="wave-text">
-      <span>Welcome</span> <span>babyy</span> <span>ren</span> <span>ren</span> <span>to</span> <span>the</span> <span>surprise</span> <span>I</span> <span>spent</span> <span>a</span> <span>night</span> <span>working</span> <span>on.</span>
-      <span>Scroll</span> <span>down</span> <span>and</span> <span>see</span> <span>the</span> <span>memories</span> <span>we</span> <span>made</span> <span>together</span> <span>my</span> <span>baby,</span>
-      <span>and</span> <span>ofc</span> <span>a</span> <span>playlist</span> <span>of</span> <span>songs</span> <span>that</span> <span>reminded</span> <span>me</span> <span>of</span> <span>you,</span> <span>I</span> <span>love</span> <span>you</span> <span>sosososo</span> <span>much</span> <span>my</span> <span>bun</span> <span>bun.</span>
-    </p>
+    <p>Welcome babyy ren ren to the surprise I spent a night working on. Scroll down and see the memories we made together my baby, and ofc a playlist of songs that reminded me of you, I love you sosososo much my bun bun.</p>
   </div>
 </section>
 
 <section id="gallery">
   <div>
-    <h2>Our Memories</h2>
+    <h2>My Baby Girl</h2>
     <div class="gallery-container">
       <img src="images/photo1.jpg" alt="Memory 1">
       <img src="images/photo2.jpg" alt="Memory 2">
@@ -127,11 +122,11 @@ footer { padding:20px; color:#800040; text-align:center; }
 <section id="love">
   <div>
     <h2>My Love Letter 💌</h2>
-    <p class="wave-text">
-      I love you so, so much, my baby Ren Ren. I honestly can’t believe it’s already been four months.
-      I’ve enjoyed every moment with you, even the smallest things. I love you so much, my baby, and no matter what, I’ll always cherish you because you mean everything to me. I love you, Reina. I hope that one day we will get married and love each other until the end.
-    </p>
-    <div id="lyrics-container"></div>
+    <p>I love you so, so much, my baby Ren Ren. I honestly can’t believe it’s already been four months. I’ve enjoyed every moment with you, even the smallest things. I love you so much, my baby, and no matter what, I’ll always cherish you because you mean everything to me. I love you, Reina. I hope that one day we will get married and love each other until the end.</p>
+
+    <div id="lyrics-container">
+      <span class="lyric-line" id="lyrics-line"></span>
+    </div>
   </div>
 </section>
 
@@ -150,7 +145,7 @@ footer { padding:20px; color:#800040; text-align:center; }
 
 <section id="countdown">
   <div>
-    <h2>⏰ Countdown to 4 Months Anniversary ⏰</h2>
+    <h2>⏰ Countdown to Happy 4 Months My Darling ⏰</h2>
     <p id="timer">Calculating...</p>
   </div>
 </section>
@@ -160,118 +155,56 @@ footer { padding:20px; color:#800040; text-align:center; }
 <script>
 // Snow
 const snowContainer = document.getElementById('snow-container');
-function createSnowflake() {
-  const snowflake = document.createElement('div');
-  snowflake.classList.add('snowflake');
-  snowflake.style.left = Math.random() * 100 + 'vw';
-  snowflake.style.fontSize = (15 + Math.random() * 20) + 'px';
-  const colors = ['#ffffff','#ffe6f0','#ffccf2','#ffcce6','#ff99cc'];
-  snowflake.style.color = colors[Math.floor(Math.random() * colors.length)];
-  snowflake.style.animationDuration = (5 + Math.random() * 5) + 's';
-  snowflake.innerText = '❄';
-  snowContainer.appendChild(snowflake);
-  setTimeout(() => snowflake.remove(), 12000);
-}
+function createSnowflake() { const snowflake = document.createElement('div'); snowflake.classList.add('snowflake'); snowflake.style.left = Math.random() * 100 + 'vw'; snowflake.style.fontSize = (15 + Math.random() * 20) + 'px'; const colors = ['#ffffff','#ffe6f0','#ffccf2','#ffcce6','#ff99cc']; snowflake.style.color = colors[Math.floor(Math.random() * colors.length)]; snowflake.style.animationDuration = (5 + Math.random() * 5) + 's'; snowflake.innerText = '❄'; snowContainer.appendChild(snowflake); setTimeout(() => snowflake.remove(), 12000); }
 setInterval(createSnowflake, 200);
 
 // Heart Bubbles
-function createHeartBubble(){
-  const bubble = document.createElement('div');
-  bubble.classList.add('heart-bubble');
-  bubble.style.left = Math.random() * 100 + 'vw';
-  bubble.style.animationDuration = (5 + Math.random()*5) + 's';
-  document.body.appendChild(bubble);
-  setTimeout(()=>bubble.remove(), 10000);
-}
+function createHeartBubble(){ const bubble = document.createElement('div'); bubble.classList.add('heart-bubble'); bubble.style.left = Math.random() * 100 + 'vw'; bubble.style.animationDuration = (5 + Math.random()*5) + 's'; document.body.appendChild(bubble); setTimeout(()=>bubble.remove(), 10000);}
 setInterval(createHeartBubble, 400);
 
-// Animate Sections
-const sections=document.querySelectorAll('section');
-function animateSections(){
-  const triggerBottom=window.innerHeight*0.85;
-  sections.forEach(section=>{
-    const sectionTop=section.getBoundingClientRect().top;
-    if(sectionTop<triggerBottom){
-      section.style.opacity='1';
-      section.style.transform='translateY(0)';
-      section.querySelectorAll('p').forEach(p=>{
-        p.style.opacity='1';
-        p.style.transform='translateY(0)';
-      });
-      section.querySelectorAll('.gallery-container img').forEach(img=>img.classList.add('visible'));
-    }
-  });
-}
-window.addEventListener('scroll',animateSections);
-animateSections();
-
-// Auto-scroll
-let autoScrollPaused=false;
-document.getElementById('pauseScroll').addEventListener('click', ()=>{
-  autoScrollPaused=!autoScrollPaused;
-  document.getElementById('pauseScroll').innerText= autoScrollPaused ? '▶ Resume Scroll':'⏸ Pause Scroll';
-});
-let currentSection = 0;
-function autoScroll(){
-  if(autoScrollPaused) return;
-  if(currentSection >= sections.length) return;
-  sections[currentSection].scrollIntoView({behavior:'smooth'});
-  currentSection++;
-  setTimeout(autoScroll, 4000); // 4 seconds
-}
-setTimeout(autoScroll, 2000);
-
-// Countdown
-function countdownTimer(){
-  const timer = document.getElementById('timer');
-  timer.innerText = "🎉 Happy 4 Months My Darling! 🎉";
-}
-countdownTimer();
-
 // YouTube
-let ytPlayer; 
-function onYouTubeIframeAPIReady(){ ytPlayer=new YT.Player('ytplayer'); }
+let ytPlayer; function onYouTubeIframeAPIReady(){ ytPlayer=new YT.Player('ytplayer'); }
 function toggleMute(){ if(!ytPlayer)return; ytPlayer.isMuted()? ytPlayer.unMute(): ytPlayer.mute(); }
 function restartMusic(){ if(!ytPlayer)return; ytPlayer.seekTo(0); ytPlayer.playVideo(); }
 
-// Bunny Click
-const bunny=document.getElementById('bunny');
-bunny.addEventListener('click',()=>{
-  const message=document.createElement('div');
-  message.innerText="I love you, Reina ❤️";
-  message.style.position='fixed';
-  message.style.left=(window.innerWidth/2-100+Math.random()*50)+'px';
-  message.style.top=(window.innerHeight/2-50+Math.random()*50)+'px';
-  message.style.fontFamily="'Baloo 2', cursive";
-  message.style.fontSize='2em';
-  message.style.color='#ff4d85';
-  message.style.zIndex=9999;
-  message.style.opacity=1;
-  message.style.transition='all 3s ease-out';
-  document.body.appendChild(message);
-  setTimeout(()=>{
-    message.style.transform='translateY(-100px)';
-    message.style.opacity=0;
-  },100);
-  setTimeout(()=>message.remove(),3100);
-});
+// Animate Sections
+const sections=document.querySelectorAll('section');
+function animateSections(){ const triggerBottom=window.innerHeight*0.85; sections.forEach(section=>{ const sectionTop=section.getBoundingClientRect().top; if(sectionTop<triggerBottom){ section.style.opacity='1'; section.style.transform='translateY(0)'; section.querySelectorAll('p').forEach(p=>{ p.style.opacity='1'; p.style.transform='translateY(0)'; }); section.querySelectorAll('.gallery-container img').forEach(img=>img.classList.add('visible')); } }); }
+window.addEventListener('scroll',animateSections);
+animateSections();
 
-// Karaoke Lyrics
+// Auto-scroll 4s
+let autoScrollPaused=false;
+document.getElementById('pauseScroll').addEventListener('click', ()=>{ autoScrollPaused=!autoScrollPaused; document.getElementById('pauseScroll').innerText= autoScrollPaused ? '▶ Resume Scroll':'⏸ Pause Scroll'; });
+let currentSection = 0;
+function autoScroll(){ if(autoScrollPaused) return; if(currentSection >= sections.length) return; sections[currentSection].scrollIntoView({behavior:'smooth'}); currentSection++; setTimeout(autoScroll, 4000); }
+setTimeout(autoScroll, 2000);
+
+// Countdown to 12:00 AM tonight
+function countdownTimer(){ const timer = document.getElementById('timer'); const now = new Date(); let next = new Date(); next.setHours(24,0,0,0); const diff = next - now; if(diff <= 0){ timer.innerText = "🎉 Happy 4 Months My Darling! 🎉"; showCongratsEffect(); return; } const hours = Math.floor((diff/(1000*60*60))%24); const minutes = Math.floor((diff/1000/60)%60); const seconds = Math.floor((diff/1000)%60); timer.innerText = `${hours}h ${minutes}m ${seconds}s`; setTimeout(countdownTimer, 1000); }
+countdownTimer();
+
+// Congratulation effect
+function showCongratsEffect(){ const confettiContainer = document.createElement('div'); confettiContainer.style.position='fixed'; confettiContainer.style.top='0'; confettiContainer.style.left='0'; confettiContainer.style.width='100%'; confettiContainer.style.height='100%'; confettiContainer.style.pointerEvents='none'; confettiContainer.style.zIndex='9999'; document.body.appendChild(confettiContainer); const colors=['#ff4d85','#ff99cc','#ffe6f0','#ffb3d1','#ff66aa']; for(let i=0;i<200;i++){ const confetti=document.createElement('div'); confetti.innerText='🎊'; confetti.style.position='absolute'; confetti.style.left=Math.random()*100+'vw'; confetti.style.top=Math.random()*100+'vh'; confetti.style.fontSize=(10+Math.random()*20)+'px'; confetti.style.color=colors[Math.floor(Math.random()*colors.length)]; confettiContainer.appendChild(confetti); } setTimeout(()=>confettiContainer.remove(),10000); }
+
+// Bunny Easter Egg
+const bunny=document.getElementById('bunny');
+bunny.addEventListener('click',()=>{ const message=document.createElement('div'); message.innerText="I love you, Reina ❤️"; message.style.position='fixed'; message.style.left=(window.innerWidth/2-100+Math.random()*50)+'px'; message.style.top=(window.innerHeight/2-50+Math.random()*50)+'px'; message.style.fontFamily="'Baloo 2', cursive"; message.style.fontSize='2em'; message.style.color='#ff4d85'; message.style.zIndex=9999; message.style.opacity=1; message.style.transition='all 3s ease-out'; document.body.appendChild(message); setTimeout(()=>{ message.style.transform='translateY(-100px)'; message.style.opacity=0; },100); setTimeout(()=>message.remove(),3100); });
+
+// Karaoke Lyrics under Love Letter
 const lyrics = [
-  "Kailan…", "Mahal kita…", "Di ko makakalimutan…", "Hanggang sa dulo…"
+  "Kailan nga ba kita muling mamahalin…",
+  "Di ko malaman kung kaya ko pang maghintay…",
+  "Mahal kita, mahal kita…",
+  "Hanggang sa dulo, walang hanggan…",
+  "Di ko makakalimutan, bawat sandali…",
+  "Ikaw at ako, sinta, sa bawat araw…"
 ];
 let lyricIndex = 0;
-const lyricContainer = document.getElementById('lyrics-container');
-function showNextLyric(){
-  lyricContainer.innerHTML = '';
-  const line = document.createElement('div');
-  line.className = 'karaoke-line';
-  line.innerText = lyrics[lyricIndex];
-  lyricContainer.appendChild(line);
-  lyricIndex = (lyricIndex + 1) % lyrics.length;
-}
-setInterval(showNextLyric, 2500);
-
+const lyricElement = document.getElementById('lyrics-line');
+function showNextLyric() { lyricElement.style.opacity = 0; setTimeout(() => { lyricElement.innerText = lyrics[lyricIndex]; lyricElement.style.opacity = 1; lyricIndex = (lyricIndex + 1) % lyrics.length; }, 500); }
+setInterval(showNextLyric, 4000);
+showNextLyric();
 </script>
 </body>
 </html>
