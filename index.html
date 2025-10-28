@@ -1,276 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For Reina 💕</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://www.youtube.com/iframe_api"></script>
-  <script src="script.js"></script>
-  <style>
-    /* ========== General ========== */
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(#ffe6f0, #ffcce6);
-      overflow-x: hidden;
-    }
-
-    /* ========== Snow ========== */
-    .snowflake {
-      position: fixed;
-      top: -10px;
-      color: white;
-      user-select: none;
-      pointer-events: none;
-      font-size: 1em;
-      z-index: 1000;
-      animation: fall linear infinite;
-    }
-
-    @keyframes fall {
-      0% { transform: translateY(0) rotate(0deg); }
-      100% { transform: translateY(110vh) rotate(360deg); }
-    }
-
-    /* ========== Bunny ========== */
-    .bunny {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 80px;
-      height: 80px;
-      background-image: url('images/bunny.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      animation: hop 2s ease-in-out infinite;
-      z-index: 5;
-    }
-
-    @keyframes hop {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-    }
-
-    /* ========== Menu ========== */
-    header.nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(255, 77, 133, 0.8);
-      padding: 15px 0;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      z-index: 10;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    }
-
-    header.nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.2em;
-      padding: 5px 10px;
-      transition: all 0.3s ease;
-      border-radius: 8px;
-    }
-
-    header.nav a:hover {
-      background: #ff80aa;
-      transform: scale(1.1);
-    }
-
-    /* ========== Sections ========== */
-    section {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 80px 20px 40px 20px;
-      color: #800040;
-      scroll-margin-top: 70px;
-    }
-
-    h1, h2 {
-      margin-bottom: 30px;
-    }
-
-    /* ========== Buttons ========== */
-    .btn {
-      padding: 12px 40px;
-      font-size: 1.2em;
-      color: white;
-      background: #ff4d85;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: 0.3s;
-      margin: 10px;
-    }
-
-    .btn:hover {
-      background: #ff80aa;
-      transform: scale(1.05);
-    }
-
-    /* ========== Gallery ========== */
-    .gallery-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 15px;
-      width: 80%;
-      margin: 0 auto;
-    }
-
-    .gallery-container img {
-      width: 100%;
-      border-radius: 10px;
-      transition: transform 0.3s;
-    }
-
-    .gallery-container img:hover {
-      transform: scale(1.1);
-    }
-
-    /* ========== Playlist ========== */
-    .player {
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .controls {
-      margin-top: 15px;
-    }
-
-    .controls button {
-      padding: 10px 20px;
-      background: #ff4d85;
-      border: none;
-      color: white;
-      font-size: 1em;
-      margin: 5px;
-      cursor: pointer;
-      border-radius: 8px;
-      transition: 0.3s;
-    }
-
-    .controls button:hover {
-      background: #ff80aa;
-      transform: scale(1.05);
-    }
-
-    footer {
-      padding: 20px;
-      background: #ffb3c6;
-      color: #800040;
-      text-align: center;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💖 Magical Anniversary for Reina 💖</title>
+<script src="https://www.youtube.com/iframe_api"></script>
+<style>
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: transparent;
+  overflow-x: hidden;
+  position: relative;
+  color: #800040;
+}
+#background-glow {
+  position: fixed; top:0; left:0; width:100%; height:100%; z-index:-2;
+  background: radial-gradient(circle, rgba(255,192,203,0.2), rgba(255,182,193,0));
+  animation: pulse 5s infinite alternate;
+}
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.5; }
+}
+#snow-container { position: fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index: -1; }
+.snowflake { position: fixed; top: -10px; user-select: none; pointer-events: none; font-size: 1em; z-index: 1000; animation: fall linear infinite, shimmer 2s infinite alternate; }
+@keyframes fall { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translateY(110vh) rotate(360deg); } }
+@keyframes shimmer { 0%,100% { opacity: 0.8; } 50% { opacity: 0.3; } }
+.bunny { position: fixed; width: 80px; height: 80px; background-image: url('images/bunny.png'); background-size: contain; background-repeat: no-repeat; z-index: 5; transition: transform 0.5s ease-out; }
+section { min-height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; padding: 80px 20px 40px 20px; opacity:0; transform:translateY(50px); transition: all 0.8s ease-out; }
+h1,h2 { margin-bottom: 30px; }
+p { opacity:0; transform: translateY(20px); transition: all 1s ease-out; }
+.gallery-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; width:80%; margin:0 auto; }
+.gallery-container img { width:100%; border-radius:10px; transition: transform 0.3s, box-shadow 1s ease-in-out; }
+.gallery-container img:hover, .gallery-container img.visible { transform: scale(1.05); box-shadow: 0 0 20px #ff80aa, 0 0 40px #ff4d85; }
+.player { max-width: 700px; margin: 0 auto; }
+.controls { margin-top: 15px; }
+.controls button { padding: 10px 20px; background: #ff4d85; border:none; color:white; font-size:1em; margin:5px; cursor:pointer; border-radius:8px; transition:0.3s; }
+.controls button:hover { background:#ff80aa; transform:scale(1.05); }
+.sparkle { position: fixed; width: 6px; height: 6px; background: #fff0ff; border-radius: 50%; pointer-events: none; opacity: 0; animation: sparkleAnim 1s ease-in-out forwards; z-index: 1000; }
+@keyframes sparkleAnim { 0% { opacity: 0; transform: scale(0); } 50% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(0); } }
+.bunny-glow { position: fixed; width: 10px; height: 10px; border-radius: 50%; background: #ff80aa; box-shadow: 0 0 10px #ff80aa, 0 0 20px #ff4d85; pointer-events: none; z-index: 10; opacity: 0.8; }
+footer { padding: 20px; color:#800040; text-align:center; }
+</style>
 </head>
 <body>
-  <div id="snow-container"></div>
-  <div class="bunny"></div>
+<div id="background-glow"></div>
+<div id="snow-container"></div>
+<div class="bunny" id="bunny"></div>
 
-  <!-- Navigation -->
-  <header class="nav">
-    <a href="#home">Home</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#love">Love Letter</a>
-    <a href="#playlist">Playlist</a>
-    <a href="#about">About Us</a>
-  </header>
+<section id="home">
+  <div>
+    <h1>💖 Magical Anniversary Surprise for My Reina 💖</h1>
+    <p>Welcome babyy ren ren to the surprise I spent a night working on. Scroll down and see the memories we made together my baby, and ofc a playlist of songs that reminded me of you, I love you sosososo much my bun bun.</p>
+  </div>
+</section>
 
-  <!-- Sections -->
-  <section id="home">
-    <div>
-      <h1>Happy Anniversary, Reina! 💖</h1>
-      <p>Welcome to our special anniversary surprise. Scroll down to explore our memories, love letters, playlist, and more!</p>
-      <button class="btn" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">Go to Gallery</button>
+<section id="gallery">
+  <div>
+    <h2>Our Memories</h2>
+    <div class="gallery-container">
+      <img src="images/photo1.jpg" alt="Memory 1">
+      <img src="images/photo2.jpg" alt="Memory 2">
+      <img src="images/photo3.jpg" alt="Memory 3">
+      <img src="images/photo4.jpg" alt="Memory 4">
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="gallery">
-    <div>
-      <h2>Our Memories</h2>
-      <div class="gallery-container">
-        <img src="images/photo1.jpg" alt="Memory 1">
-        <img src="images/photo2.jpg" alt="Memory 2">
-        <img src="images/photo3.jpg" alt="Memory 3">
-        <img src="images/photo4.jpg" alt="Memory 4">
+<section id="love">
+  <div>
+    <h2>My Love Letter 💌</h2>
+    <p>Happy anniversary, my love. Every moment with you is a treasure. This surprise website is just a small token of my love for you.</p>
+    <p>Forever yours,<br>Your love 💖</p>
+  </div>
+</section>
+
+<section id="playlist">
+  <div>
+    <h2>Our Song: "Kailan" — M.Y.M.P.</h2>
+    <div class="player">
+      <iframe id="ytplayer" width="100%" height="315" src="https://www.youtube.com/embed/v8Yx0w4tD9A?autoplay=1&mute=1&loop=1&playlist=v8Yx0w4tD9A&rel=0&modestbranding=1&enablejsapi=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <div class="controls">
+        <button onclick="toggleMute()">🎵 Mute/Unmute</button>
+        <button onclick="restartMusic()">🔄 Restart</button>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="love">
-    <div>
-      <h2>My Love Letter 💌</h2>
-      <p>Happy anniversary, my love. Every moment with you is a treasure. This surprise website is just a small token of my love for you.</p>
-      <p>Forever yours,<br>Your love 💖</p>
-    </div>
-  </section>
+<section id="about">
+  <div>
+    <h2>About Us 💖</h2>
+    <p>This website was created as a surprise for my beloved Reina, celebrating our love and memories together. Every section is crafted with ❤️ to make this anniversary unforgettable.</p>
+  </div>
+</section>
 
-  <section id="playlist">
-    <div>
-      <h2>Our Song: "Kailan" — M.Y.M.P.</h2>
-      <div class="player">
-        <iframe id="ytplayer" width="100%" height="315"
-          src="https://www.youtube.com/embed/v8Yx0w4tD9A?autoplay=1&mute=1&loop=1&playlist=v8Yx0w4tD9A&rel=0&modestbranding=1&enablejsapi=1"
-          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-        </iframe>
-        <div class="controls">
-          <button onclick="toggleMute()">🎵 Mute/Unmute</button>
-          <button onclick="restartMusic()">🔄 Restart</button>
-        </div>
-      </div>
-    </div>
-  </section>
+<footer>Made with ❤️ for Reina</footer>
 
-  <section id="about">
-    <div>
-      <h2>About Us 💖</h2>
-      <p>This website was created as a surprise for my beloved Reina, celebrating our love and memories together. Every section is crafted with ❤️ to make this anniversary unforgettable.</p>
-    </div>
-  </section>
+<script>
+const snowContainer = document.getElementById('snow-container');
+function createSnowflake() {
+  const snowflake = document.createElement('div');
+  snowflake.classList.add('snowflake');
+  snowflake.style.left = Math.random()*100 + 'vw';
+  snowflake.style.fontSize = (10+Math.random()*20)+'px';
+  const colors = ['#ffffff','#ffe6f0','#ffccf2','#ffcce6'];
+  snowflake.style.color = colors[Math.floor(Math.random()*colors.length)];
+  snowflake.style.animationDuration = (5+Math.random()*5)+'s';
+  snowflake.innerText='❄';
+  snowContainer.appendChild(snowflake);
+  setTimeout(()=>snowflake.remove(),10000);
+}
+setInterval(createSnowflake,200);
 
-  <footer>
-    Made with ❤️ for Reina
-  </footer>
+let ytPlayer;
+function onYouTubeIframeAPIReady(){ 
+  ytPlayer=new YT.Player('ytplayer',{ events:{ 'onReady':()=>{} } }); 
+}
+function toggleMute(){ if(!ytPlayer)return; if(ytPlayer.isMuted()) ytPlayer.unMute(); else ytPlayer.mute(); }
+function restartMusic(){ if(!ytPlayer)return; ytPlayer.seekTo(0); ytPlayer.playVideo(); }
 
-  <script>
-    // Snowfall
-    const snowContainer = document.getElementById('snow-container');
-    function createSnowflake() {
-      const snowflake = document.createElement('div');
-      snowflake.classList.add('snowflake');
-      snowflake.style.left = Math.random() * 100 + 'vw';
-      snowflake.style.fontSize = (10 + Math.random() * 20) + 'px';
-      snowflake.style.animationDuration = (5 + Math.random() * 5) + 's';
-      snowflake.innerText = '❄';
-      snowContainer.appendChild(snowflake);
-      setTimeout(() => snowflake.remove(), 10000);
+const sections=document.querySelectorAll('section');
+let currentSection = 0;
+
+function animateSections(){
+  const triggerBottom=window.innerHeight*0.85;
+  sections.forEach(section=>{
+    const sectionTop=section.getBoundingClientRect().top;
+    if(sectionTop<triggerBottom){ 
+      section.style.opacity='1'; section.style.transform='translateY(0)';
+      const paragraphs = section.querySelectorAll('p');
+      paragraphs.forEach(p=>{ p.style.opacity='1'; p.style.transform='translateY(0)'; });
+      const imgs = section.querySelectorAll('.gallery-container img');
+      imgs.forEach(img=>{ img.classList.add('visible'); });
     }
-    setInterval(createSnowflake, 200);
+  });
+}
+window.addEventListener('scroll',animateSections);
+animateSections();
 
-    // YouTube controls
-    let ytPlayer;
-    function onYouTubeIframeAPIReady(){
-      ytPlayer = new YT.Player('ytplayer', { events: { 'onReady': ()=>{} } });
+// Bunny trail sparkles
+const bunny=document.getElementById('bunny');
+function createSparkle(){
+  const sparkle=document.createElement('div');
+  sparkle.classList.add('sparkle');
+  const bunnyRect=bunny.getBoundingClientRect();
+  sparkle.style.left=bunnyRect.left + Math.random()*bunnyRect.width + 'px';
+  sparkle.style.top=bunnyRect.top + Math.random()*bunnyRect.height + 'px';
+  document.body.appendChild(sparkle);
+  setTimeout(()=>sparkle.remove(),1000);
+}
+setInterval(createSparkle,200);
+
+// Auto-scroll with music fade
+function autoScrollSections(){
+  if(currentSection < sections.length){
+    sections[currentSection].scrollIntoView({behavior:'smooth'});
+    if(ytPlayer){
+      let fadeOut = 0;
+      const fadeInterval = setInterval(()=>{
+        fadeOut+=5;
+        ytPlayer.setVolume(Math.max(ytPlayer.getVolume()-5,0));
+        if(fadeOut>=100){ clearInterval(fadeInterval); }
+      },100);
+      setTimeout(()=>{
+        const fadeInInterval = setInterval(()=>{
+          ytPlayer.setVolume(Math.min(ytPlayer.getVolume()+5,100));
+          if(ytPlayer.getVolume()>=100){ clearInterval(fadeInInterval); }
+        },100);
+      }, 4000);
     }
-    function toggleMute(){
-      if(!ytPlayer) return;
-      if(ytPlayer.isMuted()) ytPlayer.unMute();
-      else ytPlayer.mute();
-    }
-    function restartMusic(){
-      if(!ytPlayer) return;
-      ytPlayer.seekTo(0);
-      ytPlayer.playVideo();
-    }
-  </script>
+    currentSection++;
+    setTimeout(autoScrollSections,5000);
+  }
+}
+window.onload=()=>{ animateSections(); autoScrollSections(); };
+</script>
+
 </body>
 </html>
