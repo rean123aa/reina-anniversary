@@ -37,11 +37,18 @@ body {
   pointer-events: none;
   font-size: 15px;
   z-index: 1000;
-  animation: fall linear infinite, shimmer 2s infinite alternate;
+  animation: fall linear infinite, shimmer 2s infinite alternate, twinkle 3s infinite alternate;
   text-shadow: 0 0 5px #fff, 0 0 10px #ffccf2, 0 0 15px #ff99cc;
 }
 @keyframes fall { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translateY(110vh) rotate(360deg); } }
 @keyframes shimmer { 0%,100% { opacity: 0.8; } 50% { opacity: 0.3; } }
+@keyframes twinkle {
+  0% { color: #ffffff; opacity:0.7; }
+  25% { color: #ffe6f0; opacity:0.8; }
+  50% { color: #ffccf2; opacity:0.6; }
+  75% { color: #ffcce6; opacity:0.9; }
+  100% { color: #ff99cc; opacity:0.7; }
+}
 
 /* Heart particles */
 .heart { position: fixed; width: 12px; height: 12px; background: #ff66aa; clip-path: polygon(50% 0%, 61% 12%, 75% 12%, 85% 25%, 50% 100%, 15% 25%, 25% 12%, 39% 12%); pointer-events:none; opacity:0.8; animation: fallHeart linear infinite; z-index:1000;}
@@ -104,11 +111,7 @@ p { font-family: 'Baloo 2', cursive; font-weight:500; font-size:1.2em; color:#80
 .gallery-container img { width:100%; border-radius:10px; transition: transform 0.3s, box-shadow 1s ease-in-out; }
 .gallery-container img:hover, .gallery-container img.visible { transform: scale(1.05); box-shadow: 0 0 25px #ff80aa, 0 0 50px #ff4d85; border: 2px solid #ffb3d1; }
 .gallery-container img.sparkle { animation: sparkle 2s ease-in-out infinite alternate; }
-@keyframes sparkle {
-  0% { box-shadow: 0 0 0px #ffb3d1; }
-  50% { box-shadow: 0 0 15px #ffccf2, 0 0 30px #ff99cc; }
-  100% { box-shadow: 0 0 0px #ffb3d1; }
-}
+@keyframes sparkle { 0% { box-shadow: 0 0 0px #ffb3d1; } 50% { box-shadow: 0 0 15px #ffccf2, 0 0 30px #ff99cc; } 100% { box-shadow: 0 0 0px #ffb3d1; } }
 
 /* Music controls */
 .player { max-width: 700px; margin: 0 auto; }
@@ -182,7 +185,7 @@ footer { padding:20px; color:#800040; text-align:center; }
 <footer>Made with ❤️ for Reina</footer>
 
 <script>
-// --------------------- Snow ---------------------
+// ------------- Snow -------------
 const snowContainer = document.getElementById('snow-container');
 function createSnowflake() {
   const snowflake = document.createElement('div');
@@ -198,35 +201,19 @@ function createSnowflake() {
 }
 setInterval(createSnowflake, 200);
 
-// --------------------- Heart particles ---------------------
-function createHeart(){
-  const heart=document.createElement('div');
-  heart.classList.add('heart');
-  heart.style.left=Math.random()*100+'vw';
-  heart.style.animationDuration=(5+Math.random()*5)+'s';
-  document.body.appendChild(heart);
-  setTimeout(()=>heart.remove(),10000);
-}
+// ------------- Hearts -------------
+function createHeart(){ const heart=document.createElement('div'); heart.classList.add('heart'); heart.style.left=Math.random()*100+'vw'; heart.style.animationDuration=(5+Math.random()*5)+'s'; document.body.appendChild(heart); setTimeout(()=>heart.remove(),10000);}
 setInterval(createHeart,300);
-
-// --------------------- Floating heart bubbles ---------------------
-function createHeartBubble(){
-  const bubble = document.createElement('div');
-  bubble.classList.add('heart-bubble');
-  bubble.style.left = Math.random() * 100 + 'vw';
-  bubble.style.animationDuration = (5 + Math.random()*5) + 's';
-  document.body.appendChild(bubble);
-  setTimeout(()=>bubble.remove(), 10000);
-}
+function createHeartBubble(){ const bubble = document.createElement('div'); bubble.classList.add('heart-bubble'); bubble.style.left = Math.random() * 100 + 'vw'; bubble.style.animationDuration = (5 + Math.random()*5) + 's'; document.body.appendChild(bubble); setTimeout(()=>bubble.remove(), 10000);}
 setInterval(createHeartBubble, 400);
 
-// --------------------- YouTube ---------------------
+// ------------- YouTube -------------
 let ytPlayer;
 function onYouTubeIframeAPIReady(){ ytPlayer=new YT.Player('ytplayer'); }
 function toggleMute(){ if(!ytPlayer)return; ytPlayer.isMuted()? ytPlayer.unMute(): ytPlayer.mute(); }
 function restartMusic(){ if(!ytPlayer)return; ytPlayer.seekTo(0); ytPlayer.playVideo(); }
 
-// --------------------- Auto-scroll + animate sections ---------------------
+// ------------- Auto-scroll + animate sections -------------
 const sections=document.querySelectorAll('section');
 let currentSection=0;
 function animateSections(){
@@ -243,13 +230,13 @@ function animateSections(){
 window.addEventListener('scroll',animateSections);
 animateSections();
 
-// --------------------- Love letter sparkle ---------------------
+// ------------- Love letter sparkle -------------
 document.addEventListener('DOMContentLoaded',()=>{
   const loveText = document.querySelectorAll('#love p span');
   loveText.forEach((word, idx)=>{ setTimeout(()=>{ word.classList.add('sparkWord'); }, idx*400); });
 });
 
-// --------------------- Auto-scroll with pause ---------------------
+// ------------- Auto-scroll 2s -------------
 let autoScrollPaused=false;
 document.getElementById('pauseScroll').addEventListener('click', ()=>{
   autoScrollPaused=!autoScrollPaused;
@@ -259,12 +246,12 @@ function autoScrollSections(){
   if(currentSection<sections.length && !autoScrollPaused){
     sections[currentSection].scrollIntoView({behavior:'smooth'});
     currentSection++;
-    setTimeout(autoScrollSections,5000);
+    setTimeout(autoScrollSections,2000);
   }
 }
 window.onload=()=>{ animateSections(); autoScrollSections(); };
 
-// --------------------- Bunny click Easter egg ---------------------
+// ------------- Bunny click Easter egg -------------
 const bunny = document.getElementById('bunny');
 bunny.addEventListener('click', (e)=>{ showPopup("I love you, Reina ❤️", e.clientX, e.clientY); });
 function showPopup(message, x, y) { 
@@ -278,7 +265,7 @@ function showPopup(message, x, y) {
   setTimeout(()=>popup.remove(),2500); 
 }
 
-// --------------------- Countdown ---------------------
+// ------------- Countdown -------------
 function updateCountdown(){
   const now = new Date();
   let target = new Date();
@@ -294,7 +281,7 @@ function updateCountdown(){
 setInterval(updateCountdown,1000);
 updateCountdown();
 
-// --------------------- Gallery sparkle effect ---------------------
+// ------------- Gallery sparkle -------------
 const galleryImages = document.querySelectorAll('.gallery-container img');
 function sparkleGallery(){
   galleryImages.forEach(img => {
@@ -308,6 +295,23 @@ function sparkleGallery(){
 }
 window.addEventListener('scroll', sparkleGallery);
 window.addEventListener('load', sparkleGallery);
+
+// ------------- Click sparkle effect -------------
+document.addEventListener('click', (e) => {
+  for (let i = 0; i < 5; i++) {
+    const heart = document.createElement('div');
+    heart.classList.add('heart-bubble');
+    heart.style.left = (e.clientX + (Math.random() * 40 - 20)) + 'px';
+    heart.style.top = (e.clientY + (Math.random() * 40 - 20)) + 'px';
+    heart.style.animationDuration = (2 + Math.random()*2) + 's';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 2500);
+  }
+  
+  // Bunny sparkle
+  bunny.style.filter = 'drop-shadow(0 0 15px #ff66aa) drop-shadow(0 0 25px #ffb3d1)';
+  setTimeout(() => bunny.style.filter = 'none', 500);
+});
 </script>
 </body>
 </html>
