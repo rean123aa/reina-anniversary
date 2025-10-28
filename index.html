@@ -21,7 +21,6 @@ body {
 }
 @keyframes gradientShift { 0% {background-position:0% 50%;} 50% {background-position:100% 50%;} 100% {background-position:0% 50%;} }
 
-/* Background glow */
 #background-glow { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-2;
   background: radial-gradient(circle at 30% 30%, rgba(255,192,203,0.2), rgba(255,182,193,0));
   animation: glowShift 10s ease-in-out infinite alternate, pulse 5s infinite alternate;
@@ -31,7 +30,16 @@ body {
 
 /* Snowflakes */
 #snow-container { position: fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:-1; }
-.snowflake { position: fixed; top: -10px; user-select: none; pointer-events: none; font-size: 1em; z-index: 1000; animation: fall linear infinite, shimmer 2s infinite alternate; }
+.snowflake {
+  position: fixed;
+  top: -10px;
+  user-select: none;
+  pointer-events: none;
+  font-size: 15px;
+  z-index: 1000;
+  animation: fall linear infinite, shimmer 2s infinite alternate;
+  text-shadow: 0 0 5px #fff, 0 0 10px #ffccf2, 0 0 15px #ff99cc;
+}
 @keyframes fall { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translateY(110vh) rotate(360deg); } }
 @keyframes shimmer { 0%,100% { opacity: 0.8; } 50% { opacity: 0.3; } }
 
@@ -39,38 +47,68 @@ body {
 .heart { position: fixed; width: 12px; height: 12px; background: #ff66aa; clip-path: polygon(50% 0%, 61% 12%, 75% 12%, 85% 25%, 50% 100%, 15% 25%, 25% 12%, 39% 12%); pointer-events:none; opacity:0.8; animation: fallHeart linear infinite; z-index:1000;}
 @keyframes fallHeart { 0% {transform: translateY(0) rotate(0deg);} 100% {transform: translateY(110vh) rotate(360deg);} }
 
-/* Bunny */
+/* Floating heart bubbles behind text */
+.heart-bubble {
+  position: fixed;
+  bottom: -30px;
+  width: 15px;
+  height: 15px;
+  background: rgba(255,102,170,0.4);
+  clip-path: polygon(50% 0%, 61% 12%, 75% 12%, 85% 25%, 50% 100%, 15% 25%, 25% 12%, 39% 12%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: floatUp linear infinite;
+}
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 0.6; }
+  50% { transform: translateY(-50vh) scale(1.2); opacity: 0.8; }
+  100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+}
+
+/* Bunny fixed top right */
 .bunny {
   position: fixed;
+  top: 20px;
+  right: 20px;
   width: 80px;
   height: 80px;
   background-image: url('images/bunny.png');
   background-size: contain;
   background-repeat: no-repeat;
-  z-index: 5;
-  transform: translate(0,0);
-  animation: floatBunny 4s ease-in-out infinite alternate;
+  z-index: 10;
   cursor: pointer;
 }
-@keyframes floatBunny { 0% { transform: translate(0px, 0px); } 25% { transform: translate(15px, -10px); } 50% { transform: translate(-15px, 5px); } 75% { transform: translate(10px, -5px); } 100% { transform: translate(0px, 0px); } }
 
 /* Sections */
 section { min-height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; padding: 80px 20px 40px 20px; opacity:0; transform:translateY(50px); transition: all 0.8s ease-out; }
+
+section div {
+  background: rgba(255,255,255,0.25);
+  padding: 20px;
+  border-radius: 15px;
+}
 
 /* Bubble font */
 h1, h2 { font-family: 'Baloo 2', cursive; font-weight:700; color: #ff4d85; text-shadow: 2px 2px 0 #ffcce6, 4px 4px 0 #ffb3d1, 6px 6px 0 #ffa3c4; letter-spacing:1px; animation: floatBubble 3s ease-in-out infinite alternate; }
 @keyframes floatBubble { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
 
-p { font-family: 'Baloo 2', cursive; font-weight:500; font-size:1.2em; color:#ff66aa; text-shadow:1px 1px 0 #ffd1e6,2px 2px 0 #ffb3d1; line-height:1.6em; }
+p { font-family: 'Baloo 2', cursive; font-weight:500; font-size:1.2em; color:#800040; text-shadow:1px 1px 4px rgba(255,255,255,0.7); line-height:1.6em; }
 
 /* Sparkling words in love letter */
 .sparkWord { display:inline-block; color:#ff4d85; text-shadow: 1px 1px 0 #ffd1e6,2px 2px 0 #ffb3d1; animation: sparkleWord 2s ease-in-out infinite alternate; }
 @keyframes sparkleWord { 0% {text-shadow:1px 1px 0 #ffd1e6,2px 2px 0 #ffb3d1;} 50% {text-shadow:2px 2px 0 #ff80aa,4px 4px 0 #ff4d85;} 100% {text-shadow:1px 1px 0 #ffd1e6,2px 2px 0 #ffb3d1;} }
 
-/* Gallery hover */
+/* Gallery hover + sparkle */
 .gallery-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; width:80%; margin:0 auto; }
 .gallery-container img { width:100%; border-radius:10px; transition: transform 0.3s, box-shadow 1s ease-in-out; }
 .gallery-container img:hover, .gallery-container img.visible { transform: scale(1.05); box-shadow: 0 0 25px #ff80aa, 0 0 50px #ff4d85; border: 2px solid #ffb3d1; }
+.gallery-container img.sparkle { animation: sparkle 2s ease-in-out infinite alternate; }
+@keyframes sparkle {
+  0% { box-shadow: 0 0 0px #ffb3d1; }
+  50% { box-shadow: 0 0 15px #ffccf2, 0 0 30px #ff99cc; }
+  100% { box-shadow: 0 0 0px #ffb3d1; }
+}
 
 /* Music controls */
 .player { max-width: 700px; margin: 0 auto; }
@@ -86,20 +124,13 @@ p { font-family: 'Baloo 2', cursive; font-weight:500; font-size:1.2em; color:#ff
 .easter-popup.show { opacity:1; transform:scale(1); }
 
 footer { padding:20px; color:#800040; text-align:center; }
-
-/* Floating bubbles/petals */
-@keyframes fallBubble { 0% {transform: translateY(0);} 100% {transform: translateY(110vh) rotate(360deg);} }
-
-/* Confetti */
-@keyframes fallConfetti { 0% {transform: translateY(0);} 100% {transform: translateY(100vh) rotate(360deg);} }
-
 </style>
 </head>
 <body>
 <div id="background-glow"></div>
 <div id="snow-container"></div>
 <div class="bunny" id="bunny"></div>
-<button id="pauseScroll" style="position:fixed;top:20px;right:20px;z-index:9999;padding:10px 20px;background:#ff4d85;color:white;border:none;border-radius:10px;cursor:pointer;">⏸ Pause Scroll</button>
+<button id="pauseScroll" style="position:fixed;top:20px;right:120px;z-index:9999;padding:10px 20px;background:#ff4d85;color:white;border:none;border-radius:10px;cursor:pointer;">⏸ Pause Scroll</button>
 
 <section id="home">
   <div>
@@ -156,16 +187,16 @@ const snowContainer = document.getElementById('snow-container');
 function createSnowflake() {
   const snowflake = document.createElement('div');
   snowflake.classList.add('snowflake');
-  snowflake.style.left = Math.random()*100 + 'vw';
-  snowflake.style.fontSize = (10+Math.random()*20)+'px';
-  const colors = ['#ffffff','#ffe6f0','#ffccf2','#ffcce6'];
-  snowflake.style.color = colors[Math.floor(Math.random()*colors.length)];
-  snowflake.style.animationDuration = (5+Math.random()*5)+'s';
-  snowflake.innerText='❄';
+  snowflake.style.left = Math.random() * 100 + 'vw';
+  snowflake.style.fontSize = (15 + Math.random() * 20) + 'px';
+  const colors = ['#ffffff','#ffe6f0','#ffccf2','#ffcce6','#ff99cc'];
+  snowflake.style.color = colors[Math.floor(Math.random() * colors.length)];
+  snowflake.style.animationDuration = (5 + Math.random() * 5) + 's';
+  snowflake.innerText = '❄';
   snowContainer.appendChild(snowflake);
-  setTimeout(()=>snowflake.remove(),10000);
+  setTimeout(() => snowflake.remove(), 12000);
 }
-setInterval(createSnowflake,200);
+setInterval(createSnowflake, 200);
 
 // --------------------- Heart particles ---------------------
 function createHeart(){
@@ -178,38 +209,16 @@ function createHeart(){
 }
 setInterval(createHeart,300);
 
-// --------------------- Heart trails ---------------------
-document.addEventListener('mousemove', e => {
-  const heart = document.createElement('div');
-  heart.classList.add('heart');
-  heart.style.left = `${e.clientX}px`;
-  heart.style.top = `${e.clientY}px`;
-  heart.style.position = 'fixed';
-  heart.style.pointerEvents = 'none';
-  heart.style.zIndex = 1000;
-  heart.style.width = '10px';
-  heart.style.height = '10px';
-  heart.style.background = '#ff66aa';
-  heart.style.clipPath = 'polygon(50% 0%, 61% 12%, 75% 12%, 85% 25%, 50% 100%, 15% 25%, 25% 12%, 39% 12%)';
-  document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 1000);
-});
-
-// --------------------- Twinkling stars ---------------------
-function createStar() {
-  const star = document.createElement('div');
-  star.innerText = '⭐';
-  star.style.position = 'fixed';
-  star.style.left = Math.random() * 100 + 'vw';
-  star.style.top = Math.random() * 100 + 'vh';
-  star.style.fontSize = (10 + Math.random() * 15) + 'px';
-  star.style.opacity = Math.random();
-  star.style.zIndex = 0;
-  star.style.animation = `twinkle ${2 + Math.random() * 3}s infinite alternate`;
-  document.body.appendChild(star);
-  setTimeout(() => star.remove(), 8000);
+// --------------------- Floating heart bubbles ---------------------
+function createHeartBubble(){
+  const bubble = document.createElement('div');
+  bubble.classList.add('heart-bubble');
+  bubble.style.left = Math.random() * 100 + 'vw';
+  bubble.style.animationDuration = (5 + Math.random()*5) + 's';
+  document.body.appendChild(bubble);
+  setTimeout(()=>bubble.remove(), 10000);
 }
-setInterval(createStar, 300);
+setInterval(createHeartBubble, 400);
 
 // --------------------- YouTube ---------------------
 let ytPlayer;
@@ -234,24 +243,6 @@ function animateSections(){
 window.addEventListener('scroll',animateSections);
 animateSections();
 
-// --------------------- Bunny sparkles & hop ---------------------
-const bunny=document.getElementById('bunny');
-function createSparkle(){
-  const sparkle=document.createElement('div');
-  sparkle.classList.add('sparkle');
-  const rect=bunny.getBoundingClientRect();
-  sparkle.style.left=rect.left + Math.random()*rect.width + 'px';
-  sparkle.style.top=rect.top + Math.random()*rect.height + 'px';
-  document.body.appendChild(sparkle);
-  setTimeout(()=>sparkle.remove(),1000);
-}
-setInterval(createSparkle,200);
-setInterval(() => { bunny.style.transform = 'translateY(-30px)'; setTimeout(()=>bunny.style.transform='translateY(0px)',400); }, 8000);
-
-bunny.addEventListener('mouseenter', ()=>{ for(let i=0;i<5;i++) createSparkle(); });
-bunny.addEventListener('click', (e)=>{ showPopup("I love you, Reina ❤️", e.clientX, e.clientY); });
-window.addEventListener('scroll', () => { const scrollY = window.scrollY; bunny.style.top = `${100 + scrollY*0.1}px`; });
-
 // --------------------- Love letter sparkle ---------------------
 document.addEventListener('DOMContentLoaded',()=>{
   const loveText = document.querySelectorAll('#love p span');
@@ -273,15 +264,19 @@ function autoScrollSections(){
 }
 window.onload=()=>{ animateSections(); autoScrollSections(); };
 
-// --------------------- Confetti ---------------------
-function confettiBurst(){ for(let i=0;i<30;i++){ const confetti=document.createElement('div'); confetti.style.position='fixed'; confetti.style.width='6px'; confetti.style.height='6px'; confetti.style.background=['#ff4d85','#ffcce6','#ff80aa','#ffb3d1'][Math.floor(Math.random()*4)]; confetti.style.top='0px'; confetti.style.left=Math.random()*100+'vw'; confetti.style.borderRadius='50%'; confetti.style.opacity='0.9'; confetti.style.zIndex=1000; confetti.style.animation=`fallConfetti ${2+Math.random()*2}s linear forwards`; document.body.appendChild(confetti); setTimeout(()=>confetti.remove(),4000);} }
-const footer = document.querySelector('footer');
-const observer = new IntersectionObserver((entries)=>{ if(entries[0].isIntersecting) confettiBurst(); }, {threshold:0.5});
-observer.observe(footer);
-
-// --------------------- Easter Egg ---------------------
-function showPopup(message, x, y) { const popup=document.createElement('div'); popup.classList.add('easter-popup'); popup.innerText=message; popup.style.left=x+'px'; popup.style.top=y+'px'; document.body.appendChild(popup); setTimeout(()=>popup.classList.add('show'),50); setTimeout(()=>popup.remove(),2500); }
-document.addEventListener('click',(e)=>{ if(e.target.classList.contains('heart')) showPopup("You make my heart melt 💖", e.clientX, e.clientY); });
+// --------------------- Bunny click Easter egg ---------------------
+const bunny = document.getElementById('bunny');
+bunny.addEventListener('click', (e)=>{ showPopup("I love you, Reina ❤️", e.clientX, e.clientY); });
+function showPopup(message, x, y) { 
+  const popup=document.createElement('div'); 
+  popup.classList.add('easter-popup'); 
+  popup.innerText=message; 
+  popup.style.left=x+'px'; 
+  popup.style.top=y+'px'; 
+  document.body.appendChild(popup); 
+  setTimeout(()=>popup.classList.add('show'),50); 
+  setTimeout(()=>popup.remove(),2500); 
+}
 
 // --------------------- Countdown ---------------------
 function updateCountdown(){
@@ -295,16 +290,24 @@ function updateCountdown(){
   const minutes=Math.floor((diff/(1000*60))%60);
   const seconds=Math.floor((diff/1000)%60);
   document.getElementById('timer').innerText=`${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-  if(days<=3){ document.getElementById('timer').style.textShadow='0 0 15px #ff4d85,0 0 30px #ff66aa,0 0 50px #ffcce6'; } 
-  else { document.getElementById('timer').style.textShadow='none'; }
 }
 setInterval(updateCountdown,1000);
 updateCountdown();
 
-// --------------------- Floating bubbles/petals ---------------------
-function createBubble() { const bubble=document.createElement('div'); bubble.innerText='🌸'; bubble.style.position='fixed'; bubble.style.left=Math.random()*100+'vw'; bubble.style.top='-20px'; bubble.style.fontSize=(12+Math.random()*18)+'px'; bubble.style.zIndex=0; bubble.style.animation=`fallBubble ${5+Math.random()*5}s linear forwards`; document.body.appendChild(bubble); setTimeout(()=>bubble.remove(),10000);}
-setInterval(createBubble,500);
+// --------------------- Gallery sparkle effect ---------------------
+const galleryImages = document.querySelectorAll('.gallery-container img');
+function sparkleGallery(){
+  galleryImages.forEach(img => {
+    const rect = img.getBoundingClientRect();
+    if(rect.top < window.innerHeight && rect.bottom > 0){
+      img.classList.add('sparkle');
+    } else {
+      img.classList.remove('sparkle');
+    }
+  });
+}
+window.addEventListener('scroll', sparkleGallery);
+window.addEventListener('load', sparkleGallery);
 </script>
 </body>
 </html>
